@@ -16,7 +16,7 @@ namespace Chat_Client.ViewModel
         public string EnteredName
         {
             get { return enteredName; }
-            set { enteredName = value; }
+            set { enteredName = value;}
         }
 
         public ICommand OKCommand { get; set; }
