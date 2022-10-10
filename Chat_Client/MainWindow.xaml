@@ -6,14 +6,40 @@
         xmlns:local="clr-namespace:Chat_Client"
         mc:Ignorable="d"
         Title="Discord 2.0" Height="600" Width="800">
-    <Grid>
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
-            <RowDefinition Height=""/>
-            <RowDefinition Height=""/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Row="0" Grid.Column="1" Background="GhostWhite">
+            <ItemsControl x:Name="ic" ItemsSource="{Binding Messages}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="2">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Datum ide"/>
+                                    <Label Content="Bazsi küldte"/>
+                                </StackPanel>
+                                <Label Content="fasz üzenet"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Text="Example" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="0"/>
+            <Button Content="Send"  Grid.Column="1"/>
+        </Grid>
     </Grid>
 </Window>
