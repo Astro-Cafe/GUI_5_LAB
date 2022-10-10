@@ -1,4 +1,5 @@
-﻿using Chat_Models;
+﻿using Chat_Client.Services;
+using Chat_Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -37,6 +38,7 @@ namespace Chat_Client.ViewModel
 			}
 		}
 
+		public INameService NameService { get; set; }
 		public MainWindowViewModel()
 		{
 			if (!IsInDesignMode)
@@ -51,13 +53,13 @@ namespace Chat_Client.ViewModel
 				//NameService = new NameServiceViaWindow();
 
 				// Collection change event forward to code behind to scrollbar adjustment
-				//Messages.CollectionChanged += Messages_CollectionChanged;
+				Messages.CollectionChanged += Messages_CollectionChanged;
 
 				// Window Loaded event receiver
-				Messenger.Register<object, string, string>(this, "MainWindowLoaded", (recipient, msg) =>
-				{
-					this.Sender = NameService.GetName();
-				});
+				//Messenger.Register<object, string, string>(this, "MainWindowLoaded", (recipient, msg) =>
+				//{
+				//	this.Sender = NameService.GetName();
+				//});
 			}
 		}
 		private void Messages_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

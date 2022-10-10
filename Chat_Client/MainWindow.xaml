@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chat_Client"
+        xmlns:VM="clr-namespace:Chat_Client.ViewModel"
         mc:Ignorable="d"
-        Title="Discord 2.0" Height="600" Width="800">
+        Title="Discord 2.0" Height="600" Width="800" Loaded="Window_Loaded">
+    <Window.DataContext>
+        <VM:MainWindowViewModel />
+    </Window.DataContext>
     <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -16,17 +20,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Row="0" Grid.Column="1" Background="GhostWhite">
+        <ScrollViewer x:Name="scrollviewer" Grid.Row="0" Grid.Column="1" Background="GhostWhite">
             <ItemsControl x:Name="ic" ItemsSource="{Binding Messages}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Gray" BorderThickness="2">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Datum ide"/>
-                                    <Label Content="Bazsi küldte"/>
+                                    <Label Content="{Binding Sender}"/>
+                                    <Label Content="{Binding SendDate}"/>
                                 </StackPanel>
-                                <Label Content="fasz üzenet"/>
+                                <Label Content="{Binding SentMessage}"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>
@@ -38,8 +42,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
-            <TextBox Text="Example" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="0"/>
-            <Button Content="Send"  Grid.Column="1"/>
+            <TextBox Text="{Binding InputText,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="0"/>
+            <Button Content="Send"  Grid.Column="1"  Command="{Binding SendCommand}"/>
         </Grid>
     </Grid>
 </Window>

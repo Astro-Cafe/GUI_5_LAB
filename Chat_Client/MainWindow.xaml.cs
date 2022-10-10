@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace Chat_Client
         public MainWindow()
         {
             InitializeComponent();
+
+            // Mediator pattern, better than hacky VM access from window
+            WeakReferenceMessenger.Default.Register<object, string, string>(this, "ChatChanged", (sender, args) =>
+            {
+                scrollviewer.ScrollToBottom();
+            });
         }
-    }
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+            // Mediator pattern, forward event to VM
+            WeakReferenceMessenger.Default.Send("MainWindowLoaded", "MainWindowLoaded");
+        }
+	}
 }
