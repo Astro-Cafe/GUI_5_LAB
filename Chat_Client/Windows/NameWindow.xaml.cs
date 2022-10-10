@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chat_Client.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,21 @@ namespace Chat_Client.Windows
     /// </summary>
     public partial class NameWindow : Window
     {
+        public NameWindowViewModel VM { get; set; }
+
         public NameWindow()
         {
             InitializeComponent();
+            VM = new NameWindowViewModel(this);
+            this.DataContext = VM;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (VM.EnteredName == null || VM.EnteredName == "")
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
