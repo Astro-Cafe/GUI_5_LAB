@@ -7,9 +7,6 @@
         xmlns:vm="clr-namespace:Chat_Client.ViewModel"
         mc:Ignorable="d"
         Title="NameWindow" Height="200" Width="300" Closing="Window_Closing">
-    <Window.DataContext>
-        <vm:MainWindowViewModel />
-    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
