@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chat_Client.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,9 @@ namespace Chat_Client.Services
 	{
 		public string GetName()
 		{
-			return null;
+			NameWindow nw = new NameWindow();
+			nw.ShowDialog();
+			return nw.VM.EnteredName;
 		}
 	}
 }
