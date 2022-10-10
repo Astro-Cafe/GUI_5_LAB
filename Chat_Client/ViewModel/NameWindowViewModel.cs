@@ -29,14 +29,7 @@ namespace Chat_Client.ViewModel
             },
             () =>
             {
-                if (EnteredName != null && EnteredName != "")
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return (EnteredName != null && EnteredName != "");
             });
         }
     }
