@@ -26,7 +26,6 @@ namespace Chat_Client.ViewModel
             OKCommand = new RelayCommand(() =>
             {
                 window.DialogResult = true;
-                window.Close();
             },
             () =>
             {

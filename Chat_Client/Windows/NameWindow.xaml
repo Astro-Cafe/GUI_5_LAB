@@ -6,24 +6,17 @@
         xmlns:local="clr-namespace:Chat_Client.Windows"
         xmlns:vm="clr-namespace:Chat_Client.ViewModel"
         mc:Ignorable="d"
-        Title="NameWindow" Height="200" Width="300" Closing="Window_Closing">
+        Title="NameWindow" Height="100" Width="150" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" VerticalAlignment="Center">
-            <Label>Your name:</Label>
-            <TextBox Text="{Binding EnteredName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        </StackPanel>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content="OK" Padding="10" Command="{Binding OKCommand}"></Button>
-        </Grid>
+
+        <Label Content="Enter your name" Grid.Row="0"/>
+        <TextBox Text="{Binding EnteredName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+        <Button Grid.Row="2" Content="Ok!" Command="{Binding OKCommand}"/>
     </Grid>
+
 </Window>
