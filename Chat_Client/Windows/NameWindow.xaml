@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content="OK" Padding="10" Command="{Binding OkCommand}"></Button>
+            <Button Grid.Column="1" Content="OK" Padding="10" Command="{Binding OKCommand}"></Button>
         </Grid>
     </Grid>
 </Window>

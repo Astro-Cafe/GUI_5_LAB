@@ -26,11 +26,17 @@ namespace Chat_Client.ViewModel
             OKCommand = new RelayCommand(() =>
             {
                 window.DialogResult = true;
-                window.Close();
             },
             () =>
             {
-                return (EnteredName != null && EnteredName != "");
+                if (EnteredName != null && EnteredName != "")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             });
         }
     }
