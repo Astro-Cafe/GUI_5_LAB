@@ -9,10 +9,12 @@ namespace Chat_Client.Services
 {
 	public class NameServiceViaWindow : INameService
 	{
-        public string GetName()
-        {
-            return null;
-        }
-    }
+		public string GetName()
+		{
+			NameWindow nw = new NameWindow();
+			nw.ShowDialog();
+			return nw.VM.EnteredName;
+		}
+	}
 }
 
