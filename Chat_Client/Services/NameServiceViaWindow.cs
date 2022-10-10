@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chat_Client.Services
 {
-	public class NameServiceVieWindow : INameService
+	public class NameServiceViaWindow : INameService
 	{
 		public string GetName()
 		{

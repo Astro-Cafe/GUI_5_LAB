@@ -10,7 +10,7 @@
     <Window.DataContext>
         <VM:MainWindowViewModel />
     </Window.DataContext>
-    <Grid Background="Gray">
+    <Grid Background="#23272a">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
@@ -20,17 +20,23 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer x:Name="scrollviewer" Grid.Row="0" Grid.Column="1" Background="GhostWhite">
+        <StackPanel Grid.Row="0" Grid.Column="0" >
+            <ItemsControl>
+
+            </ItemsControl>
+        </StackPanel>
+
+        <ScrollViewer x:Name="scrollviewer" Grid.Row="0" Grid.Column="1" Background="#2c2f33">
             <ItemsControl x:Name="ic" ItemsSource="{Binding Messages}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="Gray" BorderThickness="2">
+                        <Border BorderBrush="#23272a" BorderThickness="2">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="{Binding Sender}"/>
-                                    <Label Content="{Binding SendDate}"/>
+                                    <Label Content="{Binding Sender}" Foreground="White"/>
+                                    <Label Content="{Binding SendDate}" Foreground="White"/>
                                 </StackPanel>
-                                <Label Content="{Binding SentMessage}"/>
+                                <Label Content="{Binding SentMessage}" Foreground="White"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>
