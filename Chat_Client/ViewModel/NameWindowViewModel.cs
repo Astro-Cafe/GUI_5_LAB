@@ -16,7 +16,7 @@ namespace Chat_Client.ViewModel
         public string EnteredName
         {
             get { return enteredName; }
-            set { enteredName = value; }
+            set { enteredName = value; (OKCommand as RelayCommand).NotifyCanExecuteChanged(); }
         }
 
         public ICommand OKCommand { get; set; }
@@ -26,10 +26,11 @@ namespace Chat_Client.ViewModel
             OKCommand = new RelayCommand(() =>
             {
                 window.DialogResult = true;
+                window.Close();
             },
             () =>
             {
-                return EnteredName != null && EnteredName != "";
+                return (EnteredName != null && EnteredName != "");
             });
         }
     }
